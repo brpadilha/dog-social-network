@@ -59,8 +59,8 @@ export const Input = ({ label, type }) => {
 Agora temos que passar a propriedade name, que tem que ser único e iremos utilizar para mandar para a requisição no backend:
 
 ```javascript
-  <Input label="Usuário" type="text" name={username} />
-  <Input label="Senha" type="password" name={password} />
+  <Input label="Usuário" type="text" name="username" />
+  <Input label="Senha" type="password" name="password" />
 ```
 
 ```javascript
