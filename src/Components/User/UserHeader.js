@@ -10,7 +10,7 @@ export default function UserHeader() {
   useEffect(() => {
     switch (location) {
       case "/conta/postar":
-        setTitle("Adicionar fotos");
+        setTitle("Postar foto");
         break;
       case "/conta/estatisticas":
         setTitle("Estatísticas");
