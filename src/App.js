@@ -5,6 +5,8 @@ import { Header } from "./Components/Header";
 import { Home } from "./Components/Home";
 import { Login } from "./Components/Login/Login";
 import { UserStorage } from "./Hooks/UserContext";
+import User from "./Components/User/User";
+import ProdectedRouter from "./Components/Helper/ProdectedRouter";
 
 function App() {
   return (
@@ -14,7 +16,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/login/*" element={<Login />} />
+            <Route path="login/*" element={<Login />} />
+            <ProdectedRouter path="conta/*" element={<User />} />
           </Routes>
           <Footer />
         </UserStorage>
