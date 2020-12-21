@@ -44,7 +44,6 @@ export const LoginForm = () => {
           Cadastro
         </Link>
       </div>
-      <Link to="/login/criar">Cadastro</Link>
     </section>
   );
 };
