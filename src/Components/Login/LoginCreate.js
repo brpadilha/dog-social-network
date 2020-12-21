@@ -1,9 +1,11 @@
 import React from "react";
 import { USER_CREATE } from "../../api";
+import { useFetch } from "../../Hooks/useFetch";
 import { useForm } from "../../Hooks/useForm";
 import { UserContext } from "../../Hooks/UserContext";
 import { Button } from "../Forms/Button";
 import { Input } from "../Forms/Input";
+import Error from "../Helper/Error";
 
 export const LoginCreate = () => {
   const username = useForm();
@@ -11,6 +13,7 @@ export const LoginCreate = () => {
   const password = useForm();
 
   const { userLogin } = React.useContext(UserContext);
+  const { loading, error, request } = useFetch();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -20,7 +23,7 @@ export const LoginCreate = () => {
       password: password.value,
     });
 
-    const response = await fetch(url, options);
+    const { response } = await request(url, options);
     // para logar automaticamente
     if (response.ok) userLogin(username.value, password.value);
   }
@@ -32,8 +35,12 @@ export const LoginCreate = () => {
         <Input label="Usuário" type="text" name="username" {...username} />
         <Input label="Email" type="email" name="email" {...email} />
         <Input label="Senha" type="password" name="password" {...password} />
-
-        <Button>Cadastre-se</Button>
+        {loading ? (
+          <Button disabled>Cadastrando...</Button>
+        ) : (
+          <Button>Cadastre-se</Button>
+        )}
+        <Error error={error} />
       </form>
     </section>
   );
