@@ -8,7 +8,7 @@ const types = {
   },
   number: {
     regex: /^\d+$/,
-    message: "Preencha com um número",
+    message: "Utilize apenas números",
   },
 };
 

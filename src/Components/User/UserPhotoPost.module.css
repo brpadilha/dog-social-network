@@ -1,4 +1,4 @@
-.photoPost{
+.photoPost {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -18,7 +18,6 @@
 .preview::after {
   content: '';
   display: block;
-  height: block;
   height: 0px;
   padding-bottom: 100%;
 }
