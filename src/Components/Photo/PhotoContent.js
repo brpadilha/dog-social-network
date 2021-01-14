@@ -13,16 +13,18 @@ export default function PhotoContent({ data }) {
       </div>
       <div className={styles.details}>
         <div>
-          <p>
+          <p className={styles.author}>
             <Link to={`/perfil/${photo.author}`}>@{photo.author}</Link>
             <span className={styles.visualizacoes}>{photo.acessos}</span>
           </p>
           <h1 className="title">
             <Link to={`/photo/${photo.id}`}>{photo.title}</Link>
           </h1>
-          <ul>
-            <li>{photo.peso}</li>
-            <li>{photo.idade === 1 ? "ano" : "anos"}</li>
+          <ul className={styles.attributes}>
+            <li>{photo.peso} kg</li>
+            <li>
+              {photo.idade === 1 ? `${photo.idade} ano` : `${photo.idade} anos`}
+            </li>
           </ul>
         </div>
       </div>

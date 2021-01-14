@@ -6,7 +6,7 @@ import Loading from "../Helper/Loading";
 import PhotoContent from "../Photo/PhotoContent";
 import styles from "./FeedModal.module.css";
 
-export default function FeedModal({ photo }) {
+export default function FeedModal({ photo, setModalPhoto }) {
   // fazer nova request para puxar a foto com os comentários
   const { data, error, loading, request } = useFetch();
 
@@ -15,8 +15,12 @@ export default function FeedModal({ photo }) {
     request(url, options);
   }, [photo, request]);
 
+  function handleOutSideClick(event) {
+    if (event.target === event.currentTarget) setModalPhoto(null);
+  }
+
   return (
-    <div className={styles.modal}>
+    <div className={styles.modal} onClick={handleOutSideClick}>
       {error && <Error error={error} />}
       {loading && <Loading />}
       {data && <PhotoContent data={data} />}
